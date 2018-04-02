@@ -1,0 +1,32 @@
+{
+  "name": "videodownload",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=development node src/server/build.js",
+    "dev": "cross-env NODE_ENV=development node src/server/app.js",
+    "lint": "./node_modules/.bin/eslint --ignore-path .gitignore src/server",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ignore-path .gitignore src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "i18next": "^10.6.0",
+    "i18next-sync-fs-backend": "^1.0.0",
+    "koa": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-i18next": "^0.1.2",
+    "koa-router": "^7.4.0",
+    "mime": "^2.2.2",
+    "mongoose": "^5.0.12",
+    "path": "^0.12.7",
+    "uuid": "^3.2.1",
+    "vm": "^0.1.0"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "webpack": "^4.3.0"
+  }
+}
