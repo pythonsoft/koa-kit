@@ -4,7 +4,7 @@ downloadService
 a koa project, use mongoose i18n
 
 ### 开发环境
-1. npm install
+1.npm install
 
 2.然后 npm run dev
 
