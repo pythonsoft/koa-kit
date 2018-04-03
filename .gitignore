@@ -2,4 +2,4 @@ build
 node_modules
 src/fe
 package-lock.json
-.idea
+.idea/
