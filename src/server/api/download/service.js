@@ -7,12 +7,13 @@ const result = require('../../common/result');
 const utils = require('../../common/utils');
 const config = require('../../config');
 const mongoose = require('mongoose');
+
 const ShelfTaskInfo = mongoose.model('ShelfTaskInfo');
 
 service.downloadFile = async function downloadFile(ctx, shelfTaskId, token) {
   let type = '';
   try {
-    let deToken = utils.decipher(token, config.KEY);
+    const deToken = utils.decipher(token, config.KEY);
     const codes = deToken.split(',');
     type = codes[0];
     const expireDate = codes[1];
@@ -44,19 +45,19 @@ service.downloadFile = async function downloadFile(ctx, shelfTaskId, token) {
           const len = suffix.length;
           if (len > 1) {
             suffix = suffix[len - 1];
-            fileName += '.' + suffix;
+            fileName += `.${suffix}`;
           }
           ctx.body = fs.createReadStream(filePath);
           const mimetype = mime.getType(filePath);
-          ctx.set('Content-disposition', 'attachment; filename=' + fileName);
+          ctx.set('Content-disposition', `attachment; filename=${fileName}`);
           ctx.set('Content-type', mimetype);
           return filePath;
         }
       }
     }
-  } catch(e) {
+  } catch (e) {
     ctx.body = result.json(ctx.t('invalidLink'));
   }
-}
+};
 
 module.exports = service;

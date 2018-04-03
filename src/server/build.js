@@ -1,4 +1,4 @@
-const webpackConfig = require('../../webpack.config')
+const webpackConfig = require('../../webpack.config');
 const webpack = require('webpack');
 const path = require('path');
 const del = require('del');

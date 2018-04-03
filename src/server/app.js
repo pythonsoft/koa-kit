@@ -1,4 +1,5 @@
 const Koa = require('koa');
+
 const app = new Koa();
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
@@ -9,7 +10,7 @@ app.use(bodyParser()); // for parsing application/json
 require('./middleware/i18n')(app);
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.mongodb.umpURL, (err) =>{
+mongoose.connect(config.mongodb.umpURL, (err) => {
   if (err) {
     throw err;
   }
@@ -18,6 +19,7 @@ mongoose.connect(config.mongodb.umpURL, (err) =>{
 });
 
 require('./apiPath')(router);
+
 app.use(router.routes(), router.allowedMethods());
 
 app.listen(config.port, () => {
