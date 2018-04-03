@@ -46,8 +46,4 @@ if (fs.existsSync(configPath)) {
   throw new Error('******** config_master.js file is not exist ********');
 }
 
-const initMongoose = function initMongoose() {
-
-};
-
 module.exports = config;
