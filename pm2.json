@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "ump-download",
+      "script": "app.js",
+      "instances": 2,
+      "exec_mode": "cluster",
+      "watch": false,
+      "error_file": "ump-err.log",
+      "out_file": "ump-out.log",
+      "merge_logs": true,
+      "log_date_format": "YYYY-MM-DD HH:mm Z"
+    }
+  ]
+}

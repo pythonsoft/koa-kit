@@ -12,6 +12,12 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   target: 'node',
+  /* eslint-disable no-useless-escape */
+  externals: [
+    /^\.\/assets$/,
+    /^[@a-z][a-z\/\.\-0-9]*$/i,
+  ],
+  /* eslint-enable no-useless-escape */
   node: {
     console: false,
     global: false,
@@ -33,6 +39,16 @@ module.exports = {
       {
         from: path.resolve(__dirname, './src/server/config_master.js'),
         to: path.resolve(__dirname, './build/config_master.js'),
+        ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, './package.json'),
+        to: path.resolve(__dirname, './build/package.json'),
+        ignore: ['.*']
+      },
+      {
+        from: path.resolve(__dirname, './pm2.json'),
+        to: path.resolve(__dirname, './build/pm2.json'),
         ignore: ['.*']
       },
     ])
